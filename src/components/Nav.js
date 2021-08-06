@@ -12,7 +12,7 @@ const Nav = () => {
         <NavWrapper>
           <Navbar.Brand href="#home">
             <img
-              alt=""
+              alt="" 
               src="/logo.svg"
               width="30"
               height="30"
