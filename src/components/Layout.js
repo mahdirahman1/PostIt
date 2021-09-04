@@ -1,16 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import Header from "./Header";
+import ImagesList from "./ImagesList";
 
 const LayoutWrapper = styled.div`
-  margin: 0 5rem;
-  border: 1px solid black;
+  margin: 0 5%;
 `;
 
 const Layout = (props) => {
   return (
     <LayoutWrapper>
       <Header />
+      <ImagesList setImage={props.setSelectedImg} />
     </LayoutWrapper>
   );
 };

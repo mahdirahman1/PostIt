@@ -1,4 +1,16 @@
 import React, { useState } from "react";
+import styled from "styled-components";
+import Progress from "./Progress";
+
+const StyledLabel = styled.label`
+  background: black;
+  color: white;
+  padding: 0.8rem;
+  padding-right: 1.2rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  margin-top: 1.4rem;
+`;
 
 const UploadForm = () => {
   const [file, setFile] = useState(null);
@@ -22,9 +34,19 @@ const UploadForm = () => {
 
   return (
     <div>
-      <input type="file" onChange={onChangeHandler} />
+      <input
+        type="file"
+        onChange={onChangeHandler}
+        id="file-input"
+        style={{ display: "none" }}
+      />
+      <StyledLabel htmlFor="file-input">
+        <i class="fas fa-plus-circle" style={{ padding: "0 0.4rem" }}></i>
+        Upload
+      </StyledLabel>
       {file && <div>{file.name}</div>}
       {error && <div>{error}</div>}
+      {file && <Progress file={file} setFile={setFile} />}
     </div>
   );
 };

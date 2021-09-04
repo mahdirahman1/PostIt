@@ -1,17 +1,38 @@
 import React from "react";
 import styled from "styled-components";
 import UploadForm from "./UploadForm";
+import Typewriter from "typewriter-effect";
+import { motion } from "framer-motion";
 
 const Wrapper = styled.div`
-  margin: 5rem 0;
+  margin: 5rem 5%;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.01rem;
 `;
 
 const Header = () => {
   return (
     <Wrapper>
-      <h1>Show off your photography</h1>
-      <p>Anonymously post your shots, you don't have to be a professional!</p>
-      <UploadForm />
+      <motion.div
+        initial={{ x: "-200vw", opacity: 0 }}
+        animate={{ x: 10, opacity: 1 }}
+        transition={{ delay: 0.8, type: "spring" }}
+      >
+        <p>A Photography sharing platform for all</p>
+        <Typewriter
+          options={{
+            strings: [
+              "Anonymously post your shots",
+              "You don't need to be a pro!",
+              "Show off your photograhy skills!",
+              "Online photo sharing for all",
+            ],
+            autoStart: true,
+            loop: true,
+          }}
+        />
+        <UploadForm />
+      </motion.div>
     </Wrapper>
   );
 };
