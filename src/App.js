@@ -1,19 +1,17 @@
 import "./App.css";
 import Nav from "./components/Nav";
 import Layout from "./components/Layout";
-import { useState } from "react";
 import Modal from "./components/Modal";
+import { useSelector } from "react-redux";
 
 function App() {
-  const [selectedImg, setSelectedImg] = useState(null);
+  const selectedImg = useSelector((state) => state.modalReducer.selectedImg);
   console.log(selectedImg);
   return (
     <div className="App">
       <Nav />
-      <Layout setSelectedImg={setSelectedImg} />
-      {selectedImg && (
-        <Modal url={selectedImg} setSelectedImg={setSelectedImg} />
-      )}
+      <Layout />
+      {selectedImg && <Modal />}
     </div>
   );
 }

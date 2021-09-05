@@ -28,7 +28,7 @@ const Header = () => {
               "Anonymously post your shots",
               "You don't need to be a pro!",
               "Show off your photograhy skills!",
-              "Online photo sharing for all",
+              "No sign-up required",
             ],
             autoStart: true,
             loop: true,

@@ -11,7 +11,7 @@ const Layout = (props) => {
   return (
     <LayoutWrapper>
       <Header />
-      <ImagesList setImage={props.setSelectedImg} />
+      <ImagesList />
     </LayoutWrapper>
   );
 };

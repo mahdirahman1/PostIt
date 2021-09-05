@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import useStorage from "../hooks/useStorage";
 import { useAlert } from "react-alert";
+import { useDispatch, useSelector } from "react-redux";
 
 const StyledProgressBar = styled.div`
   height: 0.5rem;
@@ -11,12 +12,13 @@ const StyledProgressBar = styled.div`
 `;
 
 const Progress = (props) => {
-  const { file, setFile } = props;
+  const file = useSelector((state) => state.fileReducer.file);
+  const dispatch = useDispatch();
   const alert = useAlert();
   const { url, progress, error } = useStorage(file);
   useEffect(() => {
     if (url) {
-      setFile(null);
+      dispatch({ type: "SET", payload: null });
       alert.show("Photo Uploaded", {
         timeout: 3000,
         type: "success",
@@ -33,7 +35,7 @@ const Progress = (props) => {
       });
       console.log(error);
     }
-  }, [url, setFile, alert]);
+  }, [url, dispatch, error, alert]);
   return <StyledProgressBar progress={progress} />;
 };
 

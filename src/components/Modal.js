@@ -1,4 +1,5 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 
 const Backdrop = styled.div`
@@ -19,9 +20,11 @@ const ModalImage = styled.img`
   border-radius: 1rem;
 `;
 
-const Modal = ({ url, setSelectedImg }) => {
+const Modal = () => {
+  const url = useSelector((state) => state.modalReducer.selectedImg);
+  const dispatch = useDispatch();
   return (
-    <Backdrop onClick={() => setSelectedImg(null)}>
+    <Backdrop onClick={() => dispatch({ type: "SET_IMG", payload: null })}>
       <ModalImage src={url} />
     </Backdrop>
   );

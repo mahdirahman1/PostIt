@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Progress from "./Progress";
-import { useAlert } from "react-alert";
+import { useDispatch, useSelector } from "react-redux";
 
 const StyledLabel = styled.label`
   background: black;
@@ -19,23 +19,20 @@ const StyledLabel = styled.label`
 `;
 
 const UploadForm = () => {
-  const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
   const allowedTypes = ["image/png", "image/jpeg"];
+  const file = useSelector((state) => state.fileReducer.file);
+  const dispatch = useDispatch();
 
   const onChangeHandler = (e) => {
-    console.log("here");
-    console.log(e.target.files[0]);
     const selectedFile = e.target.files[0];
     if (selectedFile && allowedTypes.includes(selectedFile.type)) {
       setError(null);
-      setFile(selectedFile);
+      dispatch({ type: "SET", payload: selectedFile });
     } else if (selectedFile) {
       setError("Please select a valid file type (jpeg or png)");
-      setFile(null);
     } else {
       setError(null);
-      setFile(null);
     }
     e.target.value = null;
   };
@@ -54,7 +51,7 @@ const UploadForm = () => {
       </StyledLabel>
       {file && <div>{file.name}</div>}
       {error && <div>{error}</div>}
-      {file && <Progress file={file} setFile={setFile} />}
+      {file && <Progress />}
     </div>
   );
 };
