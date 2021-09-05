@@ -7,7 +7,7 @@ const LayoutWrapper = styled.div`
   margin: 0 5%;
 `;
 
-const Layout = (props) => {
+const Layout = () => {
   return (
     <LayoutWrapper>
       <Header />

@@ -7,7 +7,7 @@ import Image from "./Image";
 import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
 
-const ImagesList = (props) => {
+const ImagesList = () => {
   const images = useDatabase("images");
   const dispatch = useDispatch();
 

@@ -27,6 +27,7 @@ const Header = () => {
             strings: [
               "Anonymously post your shots",
               "You don't need to be a pro!",
+              "Just Post It!",
               "Show off your photograhy skills!",
               "No sign-up required",
             ],

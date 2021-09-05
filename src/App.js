@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 
 function App() {
   const selectedImg = useSelector((state) => state.modalReducer.selectedImg);
-  console.log(selectedImg);
   return (
     <div className="App">
       <Nav />
