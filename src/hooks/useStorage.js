@@ -20,6 +20,7 @@ const useStorage = (file) => {
         setProgress(percentage);
       },
       (error) => {
+        console.log(error);
         setError(error);
       },
       async () => {

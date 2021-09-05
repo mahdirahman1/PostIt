@@ -8,6 +8,9 @@ const Wrapper = styled.div`
   margin: 5rem 5%;
   font-family: "Poppins", sans-serif;
   letter-spacing: 0.01rem;
+  @media (max-width: 400px) {
+    font-size: 0.85rem;
+  }
 `;
 
 const Header = () => {
