@@ -3,7 +3,6 @@ import "firebase/firestore";
 import "firebase/storage";
 import "firebase/app-check";
 const API_KEY = process.env.REACT_APP_FIREBASE_API;
-const KEY = process.env.REACT_APP_SECRET_KEY;
 
 var firebaseConfig = {
   apiKey: API_KEY,
