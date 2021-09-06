@@ -6,12 +6,11 @@ import { v4 as uuidv4 } from "uuid";
 import { useAlert } from "react-alert";
 
 const moderatePhoto = async (url) => {
-  console.log(url);
   const API_KEY = process.env.REACT_APP_MODERATION_API;
   const modURL = `https://api.moderatecontent.com/moderate/?face=true&key=${API_KEY}&url=${url}`;
   let mod_response = await fetch(modURL);
   const data = await mod_response.json();
-  console.log(data);
+
   if (data["rating_label"] === "adult") {
     return {
       reject: "Rejected. Adult content detected",
