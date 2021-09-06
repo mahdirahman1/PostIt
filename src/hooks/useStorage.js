@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 import { useAlert } from "react-alert";
 
 const moderatePhoto = async (url) => {
+  console.log(url);
   const API_KEY = process.env.REACT_APP_MODERATION_API;
   const modURL = `https://api.moderatecontent.com/moderate/?face=true&key=${API_KEY}&url=${url}`;
   let mod_response = await fetch(modURL);
